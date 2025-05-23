@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { Product } from './products/entities/product.entity';
 
 @Module({
   imports: [
@@ -14,8 +15,8 @@ import { ConfigModule } from '@nestjs/config';
       port: 3320,
       username: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD,
-      database: 'test',
-      entities: [],
+      database: 'mini-shop',
+      entities: [Product],
       synchronize: true,
     }),
     ProductsModule,
